@@ -1,6 +1,8 @@
 package edu.isu.cs.cs3308.structures.impl;
 
 import edu.isu.cs.cs3308.structures.Stack;
+
+import edu.isu.cs.cs3308.structures.impl.LinkedStack;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import org.junit.After;
