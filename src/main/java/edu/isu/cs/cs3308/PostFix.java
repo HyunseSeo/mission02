@@ -1,5 +1,7 @@
 package edu.isu.cs.cs3308;
 
+import edu.isu.cs.cs3308.structures.impl.LinkedStack;
+
 /**
  * Postfix expression evaluator.
  *
@@ -7,17 +9,79 @@ package edu.isu.cs.cs3308;
  */
 public class PostFix {
 
+
     /**
      * Evaluates the provided postfix expression and returns the answer. If the
      * provided string is null, empty, or only contains whitespace then return
      * 0;
      *
      * @param postfix A string representing an postfix notation expression where
-     * each item is separated by a space.
+     *                each item is separated by a space.
      * @return value of the postfix express or 0 if the postfix expression is null,
      * empty, or contains only whitespace.
      */
     public static int evalPostFix(String infix) {
-        throw new UnsupportedOperationException("Not supported yet.");
+
+
+        LinkedStack Stack = new LinkedStack<>();
+        if (infix == null || infix.trim().isEmpty()) {
+            return 0;
+        } else {
+            String[] test = infix.split(" ");
+            for (int i = 0; i < test.length; i++) {
+
+                try {
+                    int value = Integer.parseInt(test[i]);
+                    Stack.push(value);
+                    System.out.println(value);
+
+                } catch (Exception e) {
+                    int a = (int) Stack.pop();
+                    int b = (int) Stack.pop();
+
+                    if (test[i].equals("+")) {
+                        System.out.println("enter this if statements");
+                        int result = b + a;
+                        System.out.println(a);
+                        System.out.println(result);
+                        Stack.push(result);
+                    } else if (test[i].equals("-")) {
+                        System.out.println("enter - if statements");
+
+                        int result = b - a;
+                        System.out.println(b + ", " + a);
+
+                        System.out.println(result);
+                        Stack.push(result);
+                    } else if (test[i].equals("*")) {
+                        System.out.println("enter * if statements");
+
+                        System.out.println(a);
+                        System.out.println(b);
+
+                        int result = b * a;
+
+                        System.out.println(result);
+                        Stack.push(result);
+                    } else if (test[i].equals("/")) {
+                        System.out.println("enter / if statements");
+                        int result = b / a;
+                        System.out.println(a);
+
+                        System.out.println(result);
+                        Stack.push(result);
+                    }
+
+                }
+
+            }
+            return (int) Stack.pop();
+        }
+        //throw new UnsupportedOperationException("Not supported yet.");
     }
 }
+
+
+
+
+

@@ -16,23 +16,23 @@ public class LinkedStack<E> extends DoublyLinkedList<E> implements Stack<E> {
   @Override
   public void push(E element) {
 
-    DLLStack.addLast(element);
+    addLast(element);
   }
 
   @Override
   public E peek() {
 
-    return DLLStack.last();
+    return last();
   }
 
   @Override
   public E pop() {
-    return DLLStack.removeLast();
+    return removeLast();
   }
 
   @Override
   public int size() {
-    return DLLStack.size;
+    return size;
   }
 
   @Override
@@ -66,7 +66,7 @@ public class LinkedStack<E> extends DoublyLinkedList<E> implements Stack<E> {
       E element = peek();
       pop();
 
-      DLLStack.insert(element,i);
+      insert(element,i);
 
     }
   }
@@ -76,35 +76,21 @@ public class LinkedStack<E> extends DoublyLinkedList<E> implements Stack<E> {
     if(other == null){
       return;
     }
-    LinkedStack<E> temp = new LinkedStack<>();
-    temp = (LinkedStack<E>) other;
-    temp.reverse();
 
-
-    int size = temp.size();
-    for(int i = 0; i< size; i++){
-     E element = temp.peek();
-      System.out.println(element+"gggg");
-     temp.pop();
-
-
-     DLLStack.insert(element,i);
-     //other.push(element);
+    int size = other.size();
+    for(int i = 0; i <size; i++){
+     E element = ((DoublyLinkedList<E>)other).get(i);
+     push(element);
     }
-
-
-    System.out.println(other.size()+"gggg");
-    //temp.transfer((LinkedStack)DLLStack);
-    System.out.println(DLLStack.size()+"gggg");
-
-
-    //other.transfer((LinkedStack) DLLStack);
-
   }
 
   @Override
   public void printStack() {
-    DLLStack.printList();
+    for(int i=size()-1 ; i>=0; i--)
+
+      System.out.println(get(i));
+
+
 
   }
 }

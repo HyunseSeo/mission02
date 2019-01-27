@@ -152,6 +152,9 @@ public class DoublyLinkedList<E> implements List<E> {
     if (index >= size() || index < 0 ) {
       return null;
     }
+    if(index == 0){
+      return header.getNext().getElement();
+    }
     DoublyNode<E> temp = header.getNext();
     for(int i = 0; i<index; i++){
       temp = temp.getNext();
@@ -173,7 +176,7 @@ public class DoublyLinkedList<E> implements List<E> {
 
   @Override
   public void printList() {
-    for(int i = 0; i <size(); i++)
+    for(int i=0 ; i<size; i++)
 
       System.out.println(get(i));
 
