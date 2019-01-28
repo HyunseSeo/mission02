@@ -1,5 +1,7 @@
 package edu.isu.cs.cs3308.structures.impl;
-
+/*Hyunse Seo
+ * 01/27/2019*/
+/*create DoublyNode Class for applying Construct DoublyLinkedlist.*/
 public class DoublyNode<E> {
   private E element;
   private DoublyNode<E> prev;

@@ -20,6 +20,10 @@ public class PostFix {
      * @return value of the postfix express or 0 if the postfix expression is null,
      * empty, or contains only whitespace.
      */
+
+    // create a Linked Stack for put numbers and using if statements to check to calculate data.
+    // I did not figure out test No.5
+
     public static int evalPostFix(String infix) {
 
 
@@ -40,35 +44,18 @@ public class PostFix {
                     int b = (int) Stack.pop();
 
                     if (test[i].equals("+")) {
-                        System.out.println("enter this if statements");
                         int result = b + a;
-                        System.out.println(a);
-                        System.out.println(result);
                         Stack.push(result);
                     } else if (test[i].equals("-")) {
-                        System.out.println("enter - if statements");
 
                         int result = b - a;
-                        System.out.println(b + ", " + a);
-
-                        System.out.println(result);
                         Stack.push(result);
                     } else if (test[i].equals("*")) {
-                        System.out.println("enter * if statements");
-
-                        System.out.println(a);
-                        System.out.println(b);
-
                         int result = b * a;
-
-                        System.out.println(result);
                         Stack.push(result);
                     } else if (test[i].equals("/")) {
-                        System.out.println("enter / if statements");
                         int result = b / a;
-                        System.out.println(a);
 
-                        System.out.println(result);
                         Stack.push(result);
                     }
 
